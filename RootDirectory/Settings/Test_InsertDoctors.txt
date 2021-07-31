@@ -1,0 +1,8 @@
+INSERT INTO Doctors
+  VALUES (NEWID(), 'Rafael', 'Perez', '111111', 'En evaluación', 'gtorres@mail.com', GETDATE(), 'blabla', '')
+
+  INSERT INTO Doctors
+  VALUES (NEWID(), 'Rafael', 'Perez', 'egdfasfea', 'En evaluación', 'gtorres@mail.com', GETDATE(), 'blabla', '')
+
+  INSERT INTO Doctors
+  VALUES (NEWID(), 'Angela', 'Perez', '123456', 'En evaluación', 'gtorres@mail.com', GETDATE(), 'blabla', '')

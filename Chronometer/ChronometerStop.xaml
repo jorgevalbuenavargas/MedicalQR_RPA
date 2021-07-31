@@ -1,0 +1,106 @@
+<Activity mc:Ignorable="sap sap2010" x:Class="ChronometerStop" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sd="clr-namespace:System.Diagnostics;assembly=System" xmlns:this="clr-namespace:" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <x:Members>
+    <x:Property Name="in_str_Name" Type="InArgument(x:String)" />
+    <x:Property Name="in_str_ParentName" Type="InArgument(x:String)" />
+    <x:Property Name="in_str_State" Type="InArgument(x:String)" />
+    <x:Property Name="io_stopwatchState" Type="InOutArgument(sd:Stopwatch)" />
+  </x:Members>
+  <this:ChronometerStop.in_str_Name>
+    <InArgument x:TypeArguments="x:String" />
+  </this:ChronometerStop.in_str_Name>
+  <this:ChronometerStop.in_str_ParentName>
+    <InArgument x:TypeArguments="x:String" />
+  </this:ChronometerStop.in_str_ParentName>
+  <this:ChronometerStop.in_str_State>
+    <InArgument x:TypeArguments="x:String" />
+  </this:ChronometerStop.in_str_State>
+  <mva:VisualBasic.Settings>
+    <x:Null />
+  </mva:VisualBasic.Settings>
+  <sap:VirtualizedContainerService.HintSize>396,628</sap:VirtualizedContainerService.HintSize>
+  <sap2010:WorkflowViewState.IdRef>ChronometerStop_1</sap2010:WorkflowViewState.IdRef>
+  <TextExpression.NamespacesForImplementation>
+    <scg:List x:TypeArguments="x:String" Capacity="21">
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Activities.Validation</x:String>
+      <x:String>System.Activities.XamlIntegration</x:String>
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>Microsoft.VisualBasic.Activities</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+      <x:String>System.Windows.Markup</x:String>
+    </scg:List>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <scg:List x:TypeArguments="AssemblyReference" Capacity="17">
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System.Data.DataSetExtensions</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>PresentationFramework</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
+      <AssemblyReference>PresentationCore</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>System.Configuration.Install</AssemblyReference>
+    </scg:List>
+  </TextExpression.ReferencesForImplementation>
+  <Sequence DisplayName="ChronometerStop" sap:VirtualizedContainerService.HintSize="376,568" sap2010:WorkflowViewState.IdRef="Sequence_1">
+    <sap:WorkflowViewStateService.ViewState>
+      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+      </scg:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <InvokeMethod DisplayName="Stop Flow / State Chronometer" sap:VirtualizedContainerService.HintSize="334,134" sap2010:WorkflowViewState.IdRef="InvokeMethod_1" MethodName="Stop">
+      <InvokeMethod.TargetObject>
+        <InArgument x:TypeArguments="sd:Stopwatch">[io_stopwatchState]</InArgument>
+      </InvokeMethod.TargetObject>
+    </InvokeMethod>
+    <ui:AddLogFields sap2010:Annotation.AnnotationText="Name&#xA;ParentName&#xA;State&#xA;EndTime&#xA;ExecutionTime" DisplayName="Add Log Fields - Flow / State Information" sap:VirtualizedContainerService.HintSize="334,109" sap2010:WorkflowViewState.IdRef="AddLogFields_1">
+      <ui:AddLogFields.Fields>
+        <InArgument x:TypeArguments="x:String" x:Key="Name">[in_str_Name]</InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="ParentName">[in_str_ParentName]</InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="State">[in_str_State]</InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="ExecutionTime">[io_stopwatchState.Elapsed.ToString("mm\:ss")]</InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="EndTime">[DateTime.Now.ToString("dd/MM/yyyy HH:mm:ss")]</InArgument>
+      </ui:AddLogFields.Fields>
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+    </ui:AddLogFields>
+    <ui:LogMessage DisplayName="Log Message - execution started message" sap:VirtualizedContainerService.HintSize="334,91" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[in_str_Name + &quot; execution ended&quot;]" />
+    <ui:RemoveLogFields DisplayName="Remove Log Fields" sap:VirtualizedContainerService.HintSize="334,22" sap2010:WorkflowViewState.IdRef="RemoveLogFields_1">
+      <ui:RemoveLogFields.Fields>
+        <scg:List x:TypeArguments="InArgument(x:String)" Capacity="8">
+          <InArgument x:TypeArguments="x:String">Name</InArgument>
+          <InArgument x:TypeArguments="x:String">ParentName</InArgument>
+          <InArgument x:TypeArguments="x:String">State</InArgument>
+          <InArgument x:TypeArguments="x:String">ExecutionTime</InArgument>
+          <InArgument x:TypeArguments="x:String">EndTime</InArgument>
+        </scg:List>
+      </ui:RemoveLogFields.Fields>
+    </ui:RemoveLogFields>
+  </Sequence>
+</Activity>

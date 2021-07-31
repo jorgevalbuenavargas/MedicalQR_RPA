@@ -1,0 +1,135 @@
+<Activity mc:Ignorable="sap sap2010" x:Class="TryToCloseSettingsFile" mva:VisualBasic.Settings="{x:Null}" sap:VirtualizedContainerService.HintSize="733,1132" sap2010:WorkflowViewState.IdRef="TryToCloseSettingsFile_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sd="clr-namespace:System.Diagnostics;assembly=System" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <TextExpression.NamespacesForImplementation>
+    <scg:List x:TypeArguments="x:String" Capacity="21">
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Activities.Validation</x:String>
+      <x:String>System.Activities.XamlIntegration</x:String>
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>Microsoft.VisualBasic.Activities</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+      <x:String>System.Windows.Markup</x:String>
+    </scg:List>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <scg:List x:TypeArguments="AssemblyReference" Capacity="42">
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System.Data.DataSetExtensions</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>PresentationFramework</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
+      <AssemblyReference>PresentationCore</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>System.Configuration.Install</AssemblyReference>
+      <AssemblyReference>System.ServiceModel</AssemblyReference>
+      <AssemblyReference>UiPath.Excel</AssemblyReference>
+      <AssemblyReference>UiPath.Mail</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.Composition</AssemblyReference>
+      <AssemblyReference>System.ValueTuple</AssemblyReference>
+    </scg:List>
+  </TextExpression.ReferencesForImplementation>
+  <Sequence DisplayName="TryToCloseSettingsFile" sap:VirtualizedContainerService.HintSize="713,1072" sap2010:WorkflowViewState.IdRef="Sequence_1">
+    <Sequence.Variables>
+      <Variable x:TypeArguments="sd:Process" Name="excelProcess" />
+      <Variable x:TypeArguments="x:String" Name="str_Response" />
+      <Variable x:TypeArguments="sd:Stopwatch" Default="[New Stopwatch()]" Name="stopwatchState" />
+    </Sequence.Variables>
+    <sap:WorkflowViewStateService.ViewState>
+      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+      </scg:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" sap2010:Annotation.AnnotationText="Inicio de Cronómetro del flujo TryToCloseSettingsFile" DisplayName="Invoke ChronometerReset workflow - TryToCloseSettingsFile" sap:VirtualizedContainerService.HintSize="671,118" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="Chronometer\ChronometerReset.xaml">
+      <ui:InvokeWorkflowFile.Arguments>
+        <InArgument x:TypeArguments="x:String" x:Key="in_str_Name">TryToCloseSettingsFile</InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="in_str_ParentName">Settings Dictionary</InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="in_str_State">Executing</InArgument>
+        <InOutArgument x:TypeArguments="sd:Stopwatch" x:Key="io_stopwatchState">[stopwatchState]</InOutArgument>
+      </ui:InvokeWorkflowFile.Arguments>
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+    </ui:InvokeWorkflowFile>
+    <Assign DisplayName="Assign - Get the Excel Process" sap:VirtualizedContainerService.HintSize="671,60" sap2010:WorkflowViewState.IdRef="Assign_1">
+      <Assign.To>
+        <OutArgument x:TypeArguments="sd:Process">[excelProcess]</OutArgument>
+      </Assign.To>
+      <Assign.Value>
+        <InArgument x:TypeArguments="sd:Process">[Process.GetProcessesByName("Excel").FirstOrDefault(Function(excelProcess) excelProcess.MainWindowTitle.Contains("Settings.xlsx - Excel") or excelProcess.MainWindowTitle.Contains("Settings - Excel"))]</InArgument>
+      </Assign.Value>
+    </Assign>
+    <If Condition="[excelProcess IsNot Nothing]" DisplayName="If - The Excel Process is in execution" sap:VirtualizedContainerService.HintSize="671,553" sap2010:WorkflowViewState.IdRef="If_2">
+      <If.Then>
+        <Sequence DisplayName="Sequence - Confirmation to close the Settings.xlsx file" sap:VirtualizedContainerService.HintSize="526,405" sap2010:WorkflowViewState.IdRef="Sequence_3">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              <x:Boolean x:Key="IsPinned">False</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <ui:MessageBox Buttons="YesNo" Caption="Archivo Settings.xlsx en uso" ChosenButton="[str_Response]" DisplayName="Message Box - Archivos Settings abierto" sap:VirtualizedContainerService.HintSize="484,59" sap2010:WorkflowViewState.IdRef="MessageBox_1" Text="[&quot;El archivo Settings.xlsx se encuentra abierto. ¿Desea cerrar y continuar con el proceso? (Asegúrese de guardar el archivo antes de proceder)&quot;]" TopMost="True" />
+          <If Condition="[str_Response.Equals(&quot;Yes&quot;)]" DisplayName="If - Validate confirmation to close Settings.xlsx file" sap:VirtualizedContainerService.HintSize="484,214" sap2010:WorkflowViewState.IdRef="If_1">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <If.Then>
+              <ui:KillProcess ProcessName="{x:Null}" ContinueOnError="True" DisplayName="Kill Process - Close Settings.xlsx file" sap:VirtualizedContainerService.HintSize="200,22" sap2010:WorkflowViewState.IdRef="KillProcess_1" Process="[excelProcess]" />
+            </If.Then>
+            <If.Else>
+              <Sequence DisplayName="Sequence - Terminate Workflow" sap:VirtualizedContainerService.HintSize="200,66" sap2010:WorkflowViewState.IdRef="Sequence_2">
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                    <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+                <ui:MessageBox ChosenButton="{x:Null}" Buttons="Ok" Caption="Archivo Settings.xlsx en uso" DisplayName="Message Box - Terminate workflow" sap:VirtualizedContainerService.HintSize="334,59" sap2010:WorkflowViewState.IdRef="MessageBox_2" Text="[&quot;The process is goint to terminate because the file Settings.xlsx is being used by another application, proceed to close it and execute the process again.&quot;]" TopMost="True" />
+                <TerminateWorkflow DisplayName="Terminate Workflow" Exception="[new ApplicationException(&quot;El archivo Settings.xlsx se encuentra en uso y, por ende, el proceso no puede ser ejecutado. Debe proceder con su cierre e intentar la ejecución del proceso nuevamente.&quot;)]" sap:VirtualizedContainerService.HintSize="334,22" sap2010:WorkflowViewState.IdRef="TerminateWorkflow_1" />
+              </Sequence>
+            </If.Else>
+          </If>
+        </Sequence>
+      </If.Then>
+    </If>
+    <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" sap2010:Annotation.AnnotationText="Detención del cronómetro del flujo TryToCloseSettingsFile" DisplayName="Invoke ChronometerStop workflow - TryToCloseSettingsFile" sap:VirtualizedContainerService.HintSize="671,129" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_2" UnSafe="False" WorkflowFileName="Chronometer\ChronometerStop.xaml">
+      <ui:InvokeWorkflowFile.Arguments>
+        <InArgument x:TypeArguments="x:String" x:Key="in_str_Name">TryToCloseSettingsFile</InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="in_str_ParentName">Settings Dictionary</InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="in_str_State">Successful</InArgument>
+        <InOutArgument x:TypeArguments="sd:Stopwatch" x:Key="io_stopwatchState">[stopwatchState]</InOutArgument>
+      </ui:InvokeWorkflowFile.Arguments>
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+    </ui:InvokeWorkflowFile>
+  </Sequence>
+</Activity>
